@@ -11,7 +11,7 @@ links:
     website: https://golang.google.cn/
     image: golang.svg
 menu:
-    main: 
+    main:
         weight: -50
         params:
             icon: link

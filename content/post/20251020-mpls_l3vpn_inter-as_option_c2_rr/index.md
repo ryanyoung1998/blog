@@ -3,7 +3,7 @@ title: 基于HCL实现MPLS L3VPN跨域Option C2 (RR)组网
 description: 使用H3C Cloud Lab实现MPLS L3VPN跨域Option C2 (RR)组网
 date: 2025-10-20
 slug: mpls_l3vpn_opton_c2
-image: pexels-pixabay-60504.jpg
+image: cover.jpg
 categories:
     - Datacom
     - MPLS L3VPN
@@ -55,7 +55,7 @@ tags:
 ---
 
 - LoopBack地址
-  
+
   | AS  | 设备    | 地址          | AS  | 设备    | 地址          |
   | --- | ----- | ----------- | --- | ----- | ----------- |
   | 10  | RR1   | 10.0.0.1/32 | 20  | RR2   | 20.0.0.1/32 |
@@ -67,7 +67,7 @@ tags:
   | 11  | CE11  | 11.0.0.1/32 | 22  | CE22  | 22.0.0.1/32 |
 
 - AS10内部互联
-  
+
   | AS  | A端    | 接口       | 地址            | 地址           | 接口       | Z端   |
   | --- | ----- | -------- | ------------- | ------------ | -------- | ---- |
   | 10  | RR1   | GE0/0/0  | 10.0.13.1/24  | 10.0.13.3/24 | GE0/0/0  | P1   |
@@ -77,7 +77,7 @@ tags:
   | 10  | PE2   | GE0/0/0  | 10.0.56.5./24 | 10.0.56.6/24 | GE0/0/0  | CE10 |
 
 - AS20内部互联
-  
+
   | AS  | A端设备  | A端接口     | A端地址         | Z端地址         | Z端接口     | Z端设备 |
   | --- | ----- | -------- | ------------ | ------------ | -------- | ---- |
   | 20  | RR2   | GE0/0/0  | 20.0.13.1/24 | 20.0.13.3/24 | GE0/0/0  | P2   |
@@ -87,7 +87,7 @@ tags:
   | 20  | PE4   | GE0/0/0  | 20.0.56.5/24 | 20.0.56.6/24 | GE0/0/0  | CE20 |
 
 - AS之间互联
-  
+
   | A端AS | A端设备  | A端接口    | A端地址          | Z端地址          | Z端接口    | Z端设备  | Z端AS |
   | ---- | ----- | ------- | ------------- | ------------- | ------- | ----- | ---- |
   | 10   | ASRB1 | GE0/0/0 | 10.20.0.10/24 | 10.20.0.20/24 | GE0/0/0 | ASBR2 | 20   |
@@ -95,14 +95,14 @@ tags:
   | 20   | PE3   | GE0/0/0 | 20.22.0.20/24 | 20.22.0.22/24 | GE0/0/0 | CE22  | 22   |
 
 - AS内部私网互联
-  
+
   | A端AS | A端设备 | A端接口       | A端地址       | vid | Z端地址       | Z端接口       | Z端设备 |
   | ---- | ---- | ---------- | ---------- | --- | ---------- | ---------- | ---- |
   | 10   | PE2  | GE0/0/0.10 | 10.10.56.5 | 10  | 10.10.56.6 | GE0/0/0.10 | CE10 |
   | 20   | PE4  | GE0/0/0.10 | 20.20.56.5 | 20  | 20.20.56.6 | GE0/0/0.10 | CE20 |
 
 - 私网地址
-  
+
   | AS  | 设备   | 接口     | VPN | 地址           |
   | --- | ---- | ------ | --- | ------------ |
   | 10  | PE2  | Loop10 | 10  | 10.1.1.10/32 |
@@ -129,22 +129,22 @@ tags:
 
 ## 四、配置步骤
 
-#### 0. 接口地址
+### 配置接口地址
 
   略，参考【附录：完整配置文件】
 
-#### 1. IGP（IS-IS）
+### 配置全局IGP（IS-IS）
 
   略，参考【附录：完整配置文件】
 
-#### 2. MPLS + LDP
+### 配置MPLS和LDP
 
   略，参考【附录：完整配置文件】
 
-#### 3. [RR & PE] MP-iBGP + Reflect
+### 同一AS内的RR和PE建立MP-iBGP对等体，RR和ASBR建立iBGP对等体
 
 - RR1
-  
+
   ```shell
   #
   bgp 10
@@ -163,7 +163,7 @@ tags:
   ```
 
 - PE1
-  
+
   ```shell
   #
   bgp 10
@@ -178,7 +178,7 @@ tags:
   ```
 
 - PE2
-  
+
   ```shell
   #
   bgp 10
@@ -195,7 +195,7 @@ tags:
 ---
 
 - RR2
-  
+
   ```shell
   #
   bgp 20
@@ -214,7 +214,7 @@ tags:
   ```
 
 - PE3
-  
+
   ```shell
   #
   bgp 20
@@ -229,7 +229,7 @@ tags:
   ```
 
 - PE4
-  
+
   ```shell
   #
   bgp 20
@@ -243,10 +243,10 @@ tags:
   #
   ```
 
-#### 4. [ASBR] eBGP
+### ASBR之间建立eBGP对等体
 
 - ASBR1
-  
+
   ```shell
   #
   bgp 10
@@ -263,15 +263,15 @@ tags:
   #
   route-policy INCOMING_LABEL permit node 10
    if-match mpls-label
-   apply mpls-label 
+   apply mpls-label
   #
   route-policy OUTGOING_LABEL permit node 10
-   apply mpls-label 
+   apply mpls-label
   #
   ```
 
 - ASBR2
-  
+
   ```shell
   #
   bgp 20
@@ -288,17 +288,17 @@ tags:
   #
   route-policy INCOMING_LABEL permit node 10
    if-match mpls-label
-   apply mpls-label 
+   apply mpls-label
   #
   route-policy OUTGOING_LABEL permit node 10
-   apply mpls-label 
+   apply mpls-label
   #
   ```
 
-#### 5. [ASBR] IGP + BGP 路由注入
+### ASBR使用BGP将本端RR的LoopBack地址通告给对端ASBR，并将从对端ASBR学到的路由注入到IGP(ISIS)中
 
 - ASBR1
-  
+
   ```shell
   #
   bgp 10
@@ -319,7 +319,7 @@ tags:
   ```
 
 - ASBR2
-  
+
   ```shell
   #
   bgp 20
@@ -339,10 +339,10 @@ tags:
   #
   ```
 
-#### 6. [RR] Multi-Hop MP-eBGP
+### RR之间建立Multi-Hop MP-eBGP对等体
 
 - RR1
-  
+
   ```shell
   #
   bgp 10
@@ -358,7 +358,7 @@ tags:
   ```
 
 - RR2
-  
+
   ```shell
   #
   bgp 20
@@ -373,10 +373,10 @@ tags:
   #
   ```
 
-#### 7. [RR] undo policy vpn-target
+### 在RR的VPNv4地址簇里undo policy vpn-target
 
 - RR1
-  
+
   ```shell
   #
   bgp 10
@@ -387,7 +387,7 @@ tags:
   ```
 
 - RR2
-  
+
   ```shell
   #
   bgp 20
@@ -397,10 +397,10 @@ tags:
   #
   ```
 
-#### 8. [ASBR] Apply MPLS-Label
+### 在ASBR上使用路由策略给对端ASBR分发MPLS标签
 
 - ASBR1
-  
+
   ```shell
   #
   bgp 10
@@ -412,15 +412,15 @@ tags:
   #
   route-policy INCOMING_LABEL permit node 10
    if-match mpls-label
-   apply mpls-label 
+   apply mpls-label
   #
   route-policy OUTGOING_LABEL permit node 10
-   apply mpls-label 
+   apply mpls-label
   #
   ```
 
 - ASBR2
-  
+
   ```shell
   #
   bgp 20
@@ -432,17 +432,17 @@ tags:
   #
   route-policy INCOMING_LABEL permit node 10
    if-match mpls-label
-   apply mpls-label 
+   apply mpls-label
   #
   route-policy OUTGOING_LABEL permit node 10
-   apply mpls-label 
+   apply mpls-label
   #
   ```
 
-#### 9. [ASBR] label-route-capability
+### 在ASBR上给对端ASBR对等体启用label-route-capability功能
 
 - ASBR1
-  
+
   ```shell
   #
   bgp 10
@@ -453,7 +453,7 @@ tags:
   ```
 
 - ASBR2
-  
+
   ```shell
   #
   bgp 20
@@ -463,10 +463,10 @@ tags:
   #
   ```
 
-#### 10. [PE & CE] eBGP + vpn-instance
+### 方式一：PE和CE之间使用BGP传递VPNv4路由
 
 - PE1
-  
+
   ```shell
   #
   ip vpn-instance 11
@@ -486,7 +486,7 @@ tags:
    ip address 10.11.0.10 255.255.255.0
   #
   bgp 10
-   #       
+   #
    ip vpn-instance 11
     group AS11 external
     peer AS11 as-number 11
@@ -499,7 +499,7 @@ tags:
   ```
 
 - CE11
-  
+
   ```shell
   #
   ip vpn-instance 11
@@ -533,7 +533,7 @@ tags:
   ```
 
 - PE3
-  
+
   ```shell
   #
   ip vpn-instance 22
@@ -566,7 +566,7 @@ tags:
   ```
 
 - CE22
-  
+
   ```shell
   #
   ip vpn-instance 22
@@ -599,10 +599,10 @@ tags:
   #
   ```
 
-#### 11. [PE & CE] IGP + BGP 路由注入
+### 方式二：PE和CE之间使用IGP传递VPNv4路由
 
 - PE2
-  
+
   ```shell
   #
   ip vpn-instance 10
@@ -641,7 +641,7 @@ tags:
   ```
 
 - CE10
-  
+
   ```shell
   #
   ip vpn-instance 10
@@ -669,7 +669,7 @@ tags:
   ```
 
 - PE4
-  
+
   ```shell
   #
   ip vpn-instance 20
@@ -708,7 +708,7 @@ tags:
   ```
 
 - CE20
-  
+
   ```shell
   #
   ip vpn-instance 20
@@ -739,17 +739,17 @@ tags:
 
 ## 五、验证结果
 
-#### 5.1 验证私网地址能否互通
+### 验证私网地址能否互通
 
 1. 从 CE10 依次 ping PE2、PE4、CE20
-   
+
    | 设备   | 接口     | VRF | 地址        |
    | ---- | ------ | --- | --------- |
    | CE10 | Loop10 | 10  | 10.1.1.1  |
    | PE2  | Loop10 | 10  | 10.1.1.10 |
    | PE4  | Loop20 | 20  | 20.2.2.20 |
    | CE20 | Loop20 | 20  | 20.2.2.2  |
-   
+
    ```shell
    <CE 10>ping -a 10.1.1.1 -vpn-instance 10 10.1.1.10
    Ping 10.1.1.10 (10.1.1.10) from 10.1.1.1: 56 data bytes, press CTRL+C to break
@@ -758,12 +758,12 @@ tags:
    56 bytes from 10.1.1.10: icmp_seq=2 ttl=255 time=1.251 ms
    56 bytes from 10.1.1.10: icmp_seq=3 ttl=255 time=0.915 ms
    56 bytes from 10.1.1.10: icmp_seq=4 ttl=255 time=0.466 ms
-   
+
    --- Ping statistics for 10.1.1.10 in VPN instance 10 ---
    5 packet(s) transmitted, 5 packet(s) received, 0.0% packet loss
    round-trip min/avg/max/std-dev = 0.411/0.777/1.251/0.309 ms
    <CE 10>%Oct 21 15:16:45:055 2025 CE 10 PING/6/PING_VPN_STATISTICS: Ping statistics for 10.1.1.10 in VPN instance 10: 5 packet(s) transmitted, 5 packet(s) received, 0.0% packet loss, round-trip min/avg/max/std-dev = 0.411/0.777/1.251/0.309 ms.
-   
+
    <CE 10>ping -a 10.1.1.1 -vpn-instance 10 20.2.2.20
    Ping 20.2.2.20 (20.2.2.20) from 10.1.1.1: 56 data bytes, press CTRL+C to break
    56 bytes from 20.2.2.20: icmp_seq=0 ttl=254 time=4.559 ms
@@ -771,12 +771,12 @@ tags:
    56 bytes from 20.2.2.20: icmp_seq=2 ttl=254 time=3.107 ms
    56 bytes from 20.2.2.20: icmp_seq=3 ttl=254 time=5.779 ms
    56 bytes from 20.2.2.20: icmp_seq=4 ttl=254 time=6.567 ms
-   
+
    --- Ping statistics for 20.2.2.20 in VPN instance 10 ---
    5 packet(s) transmitted, 5 packet(s) received, 0.0% packet loss
    round-trip min/avg/max/std-dev = 2.867/4.576/6.567/1.448 ms
    <CE 10>%Oct 21 15:16:52:852 2025 CE 10 PING/6/PING_VPN_STATISTICS: Ping statistics for 20.2.2.20 in VPN instance 10: 5 packet(s) transmitted, 5 packet(s) received, 0.0% packet loss, round-trip min/avg/max/std-dev = 2.867/4.576/6.567/1.448 ms.
-   
+
    <CE 10>ping -a 10.1.1.1 -vpn-instance 10 20.2.2.2
    Ping 20.2.2.2 (20.2.2.2) from 10.1.1.1: 56 data bytes, press CTRL+C to break
    56 bytes from 20.2.2.2: icmp_seq=0 ttl=253 time=4.091 ms
@@ -784,24 +784,24 @@ tags:
    56 bytes from 20.2.2.2: icmp_seq=2 ttl=253 time=2.737 ms
    56 bytes from 20.2.2.2: icmp_seq=3 ttl=253 time=2.766 ms
    56 bytes from 20.2.2.2: icmp_seq=4 ttl=253 time=3.869 ms
-   
+
    --- Ping statistics for 20.2.2.2 in VPN instance 10 ---
    5 packet(s) transmitted, 5 packet(s) received, 0.0% packet loss
    round-trip min/avg/max/std-dev = 2.737/3.535/4.212/0.649 ms
    <CE 10>%Oct 21 15:16:48:879 2025 CE 10 PING/6/PING_VPN_STATISTICS: Ping statistics for 20.2.2.2 in VPN instance 10: 5 packet(s) transmitted, 5 packet(s) received, 0.0% packet loss, round-trip min/avg/max/std-dev = 2.737/3.535/4.212/0.649 ms.
-   
+
    <CE 10>
    ```
 
 2. 从 CE11 依次 ping PE1、PE3、CE22
-   
+
    | 设备   | 接口     | VRF | 地址        |
    | ---- | ------ | --- | --------- |
    | CE11 | Loop11 | 11  | 11.1.1.1  |
    | PE1  | Loop11 | 11  | 11.1.1.11 |
    | PE3  | Loop22 | 22  | 22.2.2.22 |
    | CE22 | Loop22 | 22  | 22.2.2.2  |
-   
+
    ```shell
    <CE 11>ping -a 11.1.1.1 -vpn-instance 11 11.1.1.11
    Ping 11.1.1.11 (11.1.1.11) from 11.1.1.1: 56 data bytes, press CTRL+C to break
@@ -810,12 +810,12 @@ tags:
    56 bytes from 11.1.1.11: icmp_seq=2 ttl=255 time=0.688 ms
    56 bytes from 11.1.1.11: icmp_seq=3 ttl=255 time=0.542 ms
    56 bytes from 11.1.1.11: icmp_seq=4 ttl=255 time=0.518 ms
-   
+
    --- Ping statistics for 11.1.1.11 in VPN instance 11 ---
    5 packet(s) transmitted, 5 packet(s) received, 0.0% packet loss
    round-trip min/avg/max/std-dev = 0.467/0.669/1.131/0.242 ms
    <CE 11>%Oct 21 15:11:18:688 2025 CE 11 PING/6/PING_VPN_STATISTICS: Ping statistics for 11.1.1.11 in VPN instance 11: 5 packet(s) transmitted, 5 packet(s) received, 0.0% packet loss, round-trip min/avg/max/std-dev = 0.467/0.669/1.131/0.242 ms.
-   
+
    <CE 11>ping -a 11.1.1.1 -vpn-instance 11 22.2.2.22
    Ping 22.2.2.22 (22.2.2.22) from 11.1.1.1: 56 data bytes, press CTRL+C to break
    56 bytes from 22.2.2.22: icmp_seq=0 ttl=254 time=5.016 ms
@@ -823,12 +823,12 @@ tags:
    56 bytes from 22.2.2.22: icmp_seq=2 ttl=254 time=7.905 ms
    56 bytes from 22.2.2.22: icmp_seq=3 ttl=254 time=2.798 ms
    56 bytes from 22.2.2.22: icmp_seq=4 ttl=254 time=4.527 ms
-   
+
    --- Ping statistics for 22.2.2.22 in VPN instance 11 ---
    5 packet(s) transmitted, 5 packet(s) received, 0.0% packet loss
    round-trip min/avg/max/std-dev = 2.798/4.629/7.905/1.857 ms
    <CE 11>%Oct 21 15:11:28:608 2025 CE 11 PING/6/PING_VPN_STATISTICS: Ping statistics for 22.2.2.22 in VPN instance 11: 5 packet(s) transmitted, 5 packet(s) received, 0.0% packet loss, round-trip min/avg/max/std-dev = 2.798/4.629/7.905/1.857 ms.
-   
+
    <CE 11>ping -a 11.1.1.1 -vpn-instance 11 22.2.2.2
    Ping 22.2.2.2 (22.2.2.2) from 11.1.1.1: 56 data bytes, press CTRL+C to break
    56 bytes from 22.2.2.2: icmp_seq=0 ttl=253 time=5.426 ms
@@ -836,16 +836,16 @@ tags:
    56 bytes from 22.2.2.2: icmp_seq=2 ttl=253 time=6.420 ms
    56 bytes from 22.2.2.2: icmp_seq=3 ttl=253 time=5.806 ms
    56 bytes from 22.2.2.2: icmp_seq=4 ttl=253 time=4.692 ms
-   
+
    --- Ping statistics for 22.2.2.2 in VPN instance 11 ---
    5 packet(s) transmitted, 5 packet(s) received, 0.0% packet loss
    round-trip min/avg/max/std-dev = 4.692/5.875/7.032/0.805 ms
    <CE 11>%Oct 21 15:11:31:070 2025 CE 11 PING/6/PING_VPN_STATISTICS: Ping statistics for 22.2.2.2 in VPN instance 11: 5 packet(s) transmitted, 5 packet(s) received, 0.0% packet loss, round-trip min/avg/max/std-dev = 4.692/5.875/7.032/0.805 ms.
-   
+
    <CE 11>
    ```
 
-#### 5.2 验证 BGP 状态
+### 验证 BGP 状态
 
 涉及 RR、ASBR、PE
 
@@ -876,7 +876,7 @@ tags:
  10.20.0.20             20      231      222    0        1 03:20:28 Established
 <ASBR 1>
 
-<PE 1>display bgp peer ipv4 vpn-instance-all 
+<PE 1>display bgp peer ipv4 vpn-instance-all
 
  Local AS number: 10
  * - Dynamically created peer
@@ -891,7 +891,7 @@ tags:
 <PE 1>
 ```
 
-#### 5.3 验证 ISIS 状态
+### 验证 ISIS 状态
 
 涉及 P、RR、ASBR、PE
 
@@ -916,7 +916,7 @@ tags:
  System ID: 0000.0000.0002
  Interface: GE0/0/10                Circuit Id:  0000.0000.0002.01
  State: Up     HoldTime: 7s         Type: L2           PRI: 64
-<P 1> 
+<P 1>
 
 <PE 2>display isis peer
 
@@ -937,15 +937,15 @@ tags:
  System ID: 0010.0000.0006
  Interface: GE0/0/0.10              Circuit Id:  0010.0000.0006.01
  State: Up     HoldTime: 6s         Type: L2           PRI: 64
-<PE 2> 
+<PE 2>
 ```
 
-#### 5.4 验证 MPLS LDP 状态
+### 验证 MPLS LDP 状态
 
 涉及 P、RR、ASBR、PE
 
 ```shell
-<P 1>display mpls ldp peer 
+<P 1>display mpls ldp peer
 VPN instance: public instance
 Total number of peers: 4
 Peer LDP ID             State         Role     GR   AUT       KA Sent/Rcvd
@@ -956,7 +956,7 @@ Peer LDP ID             State         Role     GR   AUT       KA Sent/Rcvd
 <P 1>
 ```
 
-#### 5.5 查看 VPNv4 路由表
+### 查看 VPNv4 路由表
 
 涉及 PE、CE
 
@@ -1016,6 +1016,8 @@ Destination/Mask   Proto   Pre Cost        NextHop         Interface
 ---
 
 ## 附录：完整配置文件
+
+### AS 10
 
 #### RR1
 
@@ -1128,10 +1130,10 @@ bgp 10
 #
 route-policy INCOMING_LABEL permit node 10
  if-match mpls-label
- apply mpls-label 
+ apply mpls-label
 #
 route-policy OUTGOING_LABEL permit node 10
- apply mpls-label 
+ apply mpls-label
 #
 route-policy PASS_RR2 permit node 10
  if-match ip address prefix-list RR2
@@ -1257,7 +1259,7 @@ bgp 10
  #
  address-family vpnv4
   peer RR enable
- #       
+ #
  ip vpn-instance 11
   group AS11 external
   peer AS11 as-number 11
@@ -1372,7 +1374,7 @@ isis 10 vpn-instance 10
  network-entity 10.0010.0000.0006.00
 #
  lldp global enable
-#        
+#
 interface LoopBack0
  ip address 10.0.0.6 255.255.255.255
  isis enable 1
@@ -1443,6 +1445,8 @@ bgp 11
 
   ---
 
+### AS 20
+
 #### RR2
 
 ```shell
@@ -1460,7 +1464,7 @@ isis 1
 #
  lldp global enable
 #
-mpls ldp     
+mpls ldp
 #
 interface LoopBack0
  ip address 20.0.0.1 255.255.255.255
@@ -1554,10 +1558,10 @@ bgp 20
 #
 route-policy INCOMING_LABEL permit node 10
  if-match mpls-label
- apply mpls-label 
+ apply mpls-label
 #
 route-policy OUTGOING_LABEL permit node 10
- apply mpls-label 
+ apply mpls-label
 #
 route-policy PASS_RR1 permit node 10
  if-match ip address prefix-list RR1
@@ -1583,7 +1587,7 @@ isis 1
 #
  lldp global enable
 #
-mpls ldp     
+mpls ldp
 #
 interface LoopBack0
  ip address 20.0.0.3 255.255.255.255
