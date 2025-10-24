@@ -100,7 +100,7 @@ layout: "page"
 
 ## 📄 版权声明
 
-除非特别说明，本博客所有文章均采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 许可协议。
+除非特别说明，本博客所有文章均采用 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans) 许可协议。
 
 ---
 
