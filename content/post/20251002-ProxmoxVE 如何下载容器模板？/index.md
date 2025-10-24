@@ -3,7 +3,7 @@ title: ProxmoxVE 如何下载容器模板？
 description:
 date: 2025-10-02
 slug: proxmox-how-to-download-ct
-image: cover-proxmox-how-to-download-ct.png
+image: https://ryan1998.dpdns.org/PicGo/2025_10/cover-proxmox-how-to-download-ct.png
 categories:
     - Proxmox
     - Virtualization
@@ -37,19 +37,19 @@ tags:
 3. 系统会从官方镜像源（`https://images.linuxcontainers.org`）加载可用的 LXC 模板列表。
 
 > ⚠️ 如果列表为空，请检查：
-> 
+>
 > - PVE 节点是否能访问互联网。
 > - 是否启用了正确的软件源（见下方“常见问题”）。
 
 4. 在模板列表中，选择你需要的操作系统模板，例如：
-  
+
   - `alpine-3.18-default_20230125_amd64.tar.zst`
   - `ubuntu-22.04-standard_22.04-1_amd64.tar.zst`
   - `debian-12-standard_12.0-1_amd64.tar.zst`
 5. 点击右侧的 **“下载”** 按钮。
-  
+
 6. 系统会弹出确认窗口，确认存储位置和文件名，点击 **“下载”** 开始下载。
-  
+
 
 ---
 
@@ -134,7 +134,7 @@ cd /var/lib/vz/template/cache/
 wget https://mirrors.ustc.edu.cn/proxmox/images/system/debian-12-standard_12.12-1_amd64.tar.zst
 wget https://mirrors.ustc.edu.cn/proxmox/images/system/centos-8-default_20201210_amd64.tar.xz
 wget https://mirrors.ustc.edu.cn/proxmox/images/system/rockylinux-9-default_20240912_amd64.tar.xz
-wget https://mirrors.ustc.edu.cn/proxmox/images/system/ubuntu-25.04-standard_25.04-1.1_amd64.tar.zst  
+wget https://mirrors.ustc.edu.cn/proxmox/images/system/ubuntu-25.04-standard_25.04-1.1_amd64.tar.zst
 ```
 
 ### 4. 查看已下载模板
@@ -156,22 +156,22 @@ total 465092
 ### 1. 模板列表为空？
 
 - **原因**：PVE 无法访问模板源。
-  
+
 - **解决**：
-  
+
   - 检查网络连接：`ping images.linuxcontainers.org`
-    
+
   - 检查 DNS：`nslookup images.linuxcontainers.org`
-    
+
   - 确保 `/etc/apt/sources.list.d/pve-enterprise.list` 被注释（企业源需要订阅）。
-    
+
   - 启用免费源（如 `pve-no-subscription`）：
-    
+
     ```bash
     echo "deb http://download.proxmox.com/debian/pve $(grep "VERSION=" /etc/os-release | sed -r 's/.*="\w+ (\w+).*/\1/;s/^bookworm$/bullseye/') no-subscription" > /etc/apt/sources.list.d/pve-no-subscription.list
     apt update
     ```
-    
+
 
 3. 下载的模板在哪？
 

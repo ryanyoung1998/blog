@@ -7,12 +7,12 @@ menu:
         weight: -90
         params:
             icon: user
-image: cover-about.jpg
+image: https://ryan1998.dpdns.org/PicGo/2025_10/cover-about.jpg
 links:
   - title: My Github Homepage
     description: github.com/ryanyoung1998
     website: https://github.com/ryanyoung1998
-    image: github.svg # https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
+    image: https://ryan1998.dpdns.org/PicGo/2025_10/logo-github.svg
 draft: false
 description: "热衷于学习、分享的网络工程师"
 layout: "page"

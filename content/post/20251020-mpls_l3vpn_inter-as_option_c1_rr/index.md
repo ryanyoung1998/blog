@@ -3,7 +3,7 @@ title: 基于HCL实现MPLS L3VPN跨域Option C1 (RR)组网
 description: 使用H3C Cloud Lab实现MPLS L3VPN跨域Option C1 (RR)组网
 date: 2025-10-20
 slug: mpls_l3vpn_opton_c1
-image: mpls-l3vpn-option-c1.png
+image: https://ryan1998.dpdns.org/PicGo/2025_10/cover-mpls-l3vpn-option-c1.png
 categories:
     - Datacom
     - MPLS L3VPN
@@ -52,7 +52,7 @@ tags:
 ---
 
 - LoopBack地址
-  
+
   | AS  | 设备    | 地址          | AS  | 设备    | 地址          |
   | --- | ----- | ----------- | --- | ----- | ----------- |
   | 10  | RR1   | 10.0.0.1/32 | 20  | RR2   | 20.0.0.1/32 |
@@ -64,7 +64,7 @@ tags:
   | 11  | CE11  | 11.0.0.1/32 | 22  | CE22  | 22.0.0.1/32 |
 
 - AS10内部互联
-  
+
   | AS  | A端    | 接口       | 地址            | 地址           | 接口       | Z端   |
   | --- | ----- | -------- | ------------- | ------------ | -------- | ---- |
   | 10  | RR1   | GE0/0/0  | 10.0.13.1/24  | 10.0.13.3/24 | GE0/0/0  | P1   |
@@ -74,7 +74,7 @@ tags:
   | 10  | PE2   | GE0/0/0  | 10.0.56.5./24 | 10.0.56.6/24 | GE0/0/0  | CE10 |
 
 - AS20内部互联
-  
+
   | AS  | A端设备  | A端接口     | A端地址         | Z端地址         | Z端接口     | Z端设备 |
   | --- | ----- | -------- | ------------ | ------------ | -------- | ---- |
   | 20  | RR2   | GE0/0/0  | 20.0.13.1/24 | 20.0.13.3/24 | GE0/0/0  | P2   |
@@ -84,7 +84,7 @@ tags:
   | 20  | PE4   | GE0/0/0  | 20.0.56.5/24 | 20.0.56.6/24 | GE0/0/0  | CE20 |
 
 - AS之间互联
-  
+
   | A端AS | A端设备  | A端接口    | A端地址          | Z端地址          | Z端接口    | Z端设备  | Z端AS |
   | ---- | ----- | ------- | ------------- | ------------- | ------- | ----- | ---- |
   | 10   | ASRB1 | GE0/0/0 | 10.20.0.10/24 | 10.20.0.20/24 | GE0/0/0 | ASBR2 | 20   |
@@ -92,7 +92,7 @@ tags:
   | 20   | PE3   | GE0/0/0 | 20.22.0.20/24 | 20.22.0.22/24 | GE0/0/0 | CE22  | 22   |
 
 - 私网地址
-  
+
   | AS  | 设备   | 接口     | VPN | 地址           |
   | --- | ---- | ------ | --- | ------------ |
   | 10  | PE2  | Loop10 | 10  | 10.1.1.10/32 |
@@ -134,7 +134,7 @@ tags:
 ### 同一AS内的RR和PE建立MP-iBGP对等体，RR和ASBR建立iBGP对等体
 
 - RR1
-  
+
   ```shell
   #
   bgp 10
@@ -159,7 +159,7 @@ tags:
   ```
 
 - ASBR1
-  
+
   ```shell
   #
   bgp 10
@@ -174,7 +174,7 @@ tags:
   ```
 
 - PE1
-  
+
   ```shell
   #
   bgp 10
@@ -189,7 +189,7 @@ tags:
   ```
 
 - PE2
-  
+
   ```shell
   #
   bgp 10
@@ -206,7 +206,7 @@ tags:
 ---
 
 - RR2
-  
+
   ```shell
   #
   bgp 20
@@ -231,7 +231,7 @@ tags:
   ```
 
 - ASBR2
-  
+
   ```shell
   #
   bgp 20
@@ -246,7 +246,7 @@ tags:
   ```
 
 - PE3
-  
+
   ```shell
   #
   bgp 20
@@ -261,7 +261,7 @@ tags:
   ```
 
 - PE4
-  
+
   ```shell
   #
   bgp 20
@@ -278,7 +278,7 @@ tags:
 ### ASBR之间建立eBGP对等体
 
 - ASBR1
-  
+
   ```shell
   #
   bgp 10
@@ -293,7 +293,7 @@ tags:
   ```
 
 - ASBR2
-  
+
   ```shell
   #
   bgp 20
@@ -310,7 +310,7 @@ tags:
 ### 本端ASBR向对端ASBR通告本端RR的Loopback接口路由
 
 - ASBR1
-  
+
   ```shell
   #
   bgp 10
@@ -322,7 +322,7 @@ tags:
   ```
 
 - ASBR2
-  
+
   ```shell
   #
   bgp 20
@@ -335,7 +335,7 @@ tags:
 ### RR和ASBR之间启用label-route-capability功能
 
 - RR1
-  
+
   ```shell
   #
   bgp 10
@@ -346,7 +346,7 @@ tags:
   ```
 
 - ASBR1
-  
+
   ```shell
   #
   bgp 10
@@ -358,7 +358,7 @@ tags:
   ```
 
 - RR2
-  
+
   ```shell
   #
   bgp 20
@@ -369,7 +369,7 @@ tags:
   ```
 
 - ASBR2
-  
+
   ```shell
   #
   bgp 20
@@ -383,7 +383,7 @@ tags:
 ### RR和ASBR之间使用路由策略分发MPLS标签
 
 - RR1
-  
+
   ```shell
   #
   bgp 10
@@ -397,7 +397,7 @@ tags:
   ```
 
 - ASBR1
-  
+
   ```shell
   #
   bgp 10
@@ -412,7 +412,7 @@ tags:
   ```
 
 - RR2
-  
+
   ```shell
   #
   bgp 20
@@ -426,7 +426,7 @@ tags:
   ```
 
 - ASBR2
-  
+
   ```shell
   #
   bgp 20
@@ -443,7 +443,7 @@ tags:
 ### RR之间建立Multi-Hop MP-eBGP对等体
 
 - RR1
-  
+
   ```shell
   #
   bgp 10
@@ -459,7 +459,7 @@ tags:
   ```
 
 - RR2
-  
+
   ```shell
   #
   bgp 20
@@ -477,7 +477,7 @@ tags:
 ### 在RR的VPNv4地址簇里undo policy vpn-target
 
 - RR1
-  
+
   ```shell
   #
   bgp 10
@@ -488,7 +488,7 @@ tags:
   ```
 
 - RR2
-  
+
   ```shell
   #
   bgp 20
@@ -501,7 +501,7 @@ tags:
 ### 方式一：PE和CE之间使用BGP传递VPNv4路由
 
 - PE1
-  
+
   ```shell
   #
   ip vpn-instance 11
@@ -534,7 +534,7 @@ tags:
   ```
 
 - CE11
-  
+
   ```shell
   #
   ip vpn-instance 11
@@ -568,7 +568,7 @@ tags:
   ```
 
 - PE3
-  
+
   ```shell
   #
   ip vpn-instance 22
@@ -601,7 +601,7 @@ tags:
   ```
 
 - CE22
-  
+
   ```shell
   #
   ip vpn-instance 22
@@ -637,7 +637,7 @@ tags:
 ### 方式二：PE和CE之间使用IGP传递VPNv4路由
 
 - PE2
-  
+
   ```shell
   #
   ip vpn-instance 10
@@ -676,7 +676,7 @@ tags:
   ```
 
 - CE10
-  
+
   ```shell
   #
   ip vpn-instance 10
@@ -704,7 +704,7 @@ tags:
   ```
 
 - PE4
-  
+
   ```shell
   #
   ip vpn-instance 20
@@ -743,7 +743,7 @@ tags:
   ```
 
 - CE20
-  
+
   ```shell
   #
   ip vpn-instance 20
@@ -777,14 +777,14 @@ tags:
 ### 验证私网地址能否互通
 
 1. 从 CE10 依次 ping PE2、PE4、CE20
-   
+
    | 设备   | 接口     | VRF | 地址        |
    | ---- | ------ | --- | --------- |
    | CE10 | Loop10 | 10  | 10.1.1.1  |
    | PE2  | Loop10 | 10  | 10.1.1.10 |
    | PE4  | Loop20 | 20  | 20.2.2.20 |
    | CE20 | Loop20 | 20  | 20.2.2.2  |
-   
+
    ```shell
    <CE 10>ping -a 10.1.1.1 -vpn-instance 10 10.1.1.10
    Ping 10.1.1.10 (10.1.1.10) from 10.1.1.1: 56 data bytes, press CTRL+C to break
@@ -793,12 +793,12 @@ tags:
    56 bytes from 10.1.1.10: icmp_seq=2 ttl=255 time=1.251 ms
    56 bytes from 10.1.1.10: icmp_seq=3 ttl=255 time=0.915 ms
    56 bytes from 10.1.1.10: icmp_seq=4 ttl=255 time=0.466 ms
-   
+
    --- Ping statistics for 10.1.1.10 in VPN instance 10 ---
    5 packet(s) transmitted, 5 packet(s) received, 0.0% packet loss
    round-trip min/avg/max/std-dev = 0.411/0.777/1.251/0.309 ms
    <CE 10>%Oct 21 15:16:45:055 2025 CE 10 PING/6/PING_VPN_STATISTICS: Ping statistics for 10.1.1.10 in VPN instance 10: 5 packet(s) transmitted, 5 packet(s) received, 0.0% packet loss, round-trip min/avg/max/std-dev = 0.411/0.777/1.251/0.309 ms.
-   
+
    <CE 10>ping -a 10.1.1.1 -vpn-instance 10 20.2.2.20
    Ping 20.2.2.20 (20.2.2.20) from 10.1.1.1: 56 data bytes, press CTRL+C to break
    56 bytes from 20.2.2.20: icmp_seq=0 ttl=254 time=4.559 ms
@@ -806,12 +806,12 @@ tags:
    56 bytes from 20.2.2.20: icmp_seq=2 ttl=254 time=3.107 ms
    56 bytes from 20.2.2.20: icmp_seq=3 ttl=254 time=5.779 ms
    56 bytes from 20.2.2.20: icmp_seq=4 ttl=254 time=6.567 ms
-   
+
    --- Ping statistics for 20.2.2.20 in VPN instance 10 ---
    5 packet(s) transmitted, 5 packet(s) received, 0.0% packet loss
    round-trip min/avg/max/std-dev = 2.867/4.576/6.567/1.448 ms
    <CE 10>%Oct 21 15:16:52:852 2025 CE 10 PING/6/PING_VPN_STATISTICS: Ping statistics for 20.2.2.20 in VPN instance 10: 5 packet(s) transmitted, 5 packet(s) received, 0.0% packet loss, round-trip min/avg/max/std-dev = 2.867/4.576/6.567/1.448 ms.
-   
+
    <CE 10>ping -a 10.1.1.1 -vpn-instance 10 20.2.2.2
    Ping 20.2.2.2 (20.2.2.2) from 10.1.1.1: 56 data bytes, press CTRL+C to break
    56 bytes from 20.2.2.2: icmp_seq=0 ttl=253 time=4.091 ms
@@ -819,24 +819,24 @@ tags:
    56 bytes from 20.2.2.2: icmp_seq=2 ttl=253 time=2.737 ms
    56 bytes from 20.2.2.2: icmp_seq=3 ttl=253 time=2.766 ms
    56 bytes from 20.2.2.2: icmp_seq=4 ttl=253 time=3.869 ms
-   
+
    --- Ping statistics for 20.2.2.2 in VPN instance 10 ---
    5 packet(s) transmitted, 5 packet(s) received, 0.0% packet loss
    round-trip min/avg/max/std-dev = 2.737/3.535/4.212/0.649 ms
    <CE 10>%Oct 21 15:16:48:879 2025 CE 10 PING/6/PING_VPN_STATISTICS: Ping statistics for 20.2.2.2 in VPN instance 10: 5 packet(s) transmitted, 5 packet(s) received, 0.0% packet loss, round-trip min/avg/max/std-dev = 2.737/3.535/4.212/0.649 ms.
-   
+
    <CE 10>
    ```
 
 2. 从 CE11 依次 ping PE1、PE3、CE22
-   
+
    | 设备   | 接口     | VRF | 地址        |
    | ---- | ------ | --- | --------- |
    | CE11 | Loop11 | 11  | 11.1.1.1  |
    | PE1  | Loop11 | 11  | 11.1.1.11 |
    | PE3  | Loop22 | 22  | 22.2.2.22 |
    | CE22 | Loop22 | 22  | 22.2.2.2  |
-   
+
    ```shell
    <CE 11>ping -a 11.1.1.1 -vpn-instance 11 11.1.1.11
    Ping 11.1.1.11 (11.1.1.11) from 11.1.1.1: 56 data bytes, press CTRL+C to break
@@ -845,12 +845,12 @@ tags:
    56 bytes from 11.1.1.11: icmp_seq=2 ttl=255 time=0.688 ms
    56 bytes from 11.1.1.11: icmp_seq=3 ttl=255 time=0.542 ms
    56 bytes from 11.1.1.11: icmp_seq=4 ttl=255 time=0.518 ms
-   
+
    --- Ping statistics for 11.1.1.11 in VPN instance 11 ---
    5 packet(s) transmitted, 5 packet(s) received, 0.0% packet loss
    round-trip min/avg/max/std-dev = 0.467/0.669/1.131/0.242 ms
    <CE 11>%Oct 21 15:11:18:688 2025 CE 11 PING/6/PING_VPN_STATISTICS: Ping statistics for 11.1.1.11 in VPN instance 11: 5 packet(s) transmitted, 5 packet(s) received, 0.0% packet loss, round-trip min/avg/max/std-dev = 0.467/0.669/1.131/0.242 ms.
-   
+
    <CE 11>ping -a 11.1.1.1 -vpn-instance 11 22.2.2.22
    Ping 22.2.2.22 (22.2.2.22) from 11.1.1.1: 56 data bytes, press CTRL+C to break
    56 bytes from 22.2.2.22: icmp_seq=0 ttl=254 time=5.016 ms
@@ -858,12 +858,12 @@ tags:
    56 bytes from 22.2.2.22: icmp_seq=2 ttl=254 time=7.905 ms
    56 bytes from 22.2.2.22: icmp_seq=3 ttl=254 time=2.798 ms
    56 bytes from 22.2.2.22: icmp_seq=4 ttl=254 time=4.527 ms
-   
+
    --- Ping statistics for 22.2.2.22 in VPN instance 11 ---
    5 packet(s) transmitted, 5 packet(s) received, 0.0% packet loss
    round-trip min/avg/max/std-dev = 2.798/4.629/7.905/1.857 ms
    <CE 11>%Oct 21 15:11:28:608 2025 CE 11 PING/6/PING_VPN_STATISTICS: Ping statistics for 22.2.2.22 in VPN instance 11: 5 packet(s) transmitted, 5 packet(s) received, 0.0% packet loss, round-trip min/avg/max/std-dev = 2.798/4.629/7.905/1.857 ms.
-   
+
    <CE 11>ping -a 11.1.1.1 -vpn-instance 11 22.2.2.2
    Ping 22.2.2.2 (22.2.2.2) from 11.1.1.1: 56 data bytes, press CTRL+C to break
    56 bytes from 22.2.2.2: icmp_seq=0 ttl=253 time=5.426 ms
@@ -871,12 +871,12 @@ tags:
    56 bytes from 22.2.2.2: icmp_seq=2 ttl=253 time=6.420 ms
    56 bytes from 22.2.2.2: icmp_seq=3 ttl=253 time=5.806 ms
    56 bytes from 22.2.2.2: icmp_seq=4 ttl=253 time=4.692 ms
-   
+
    --- Ping statistics for 22.2.2.2 in VPN instance 11 ---
    5 packet(s) transmitted, 5 packet(s) received, 0.0% packet loss
    round-trip min/avg/max/std-dev = 4.692/5.875/7.032/0.805 ms
    <CE 11>%Oct 21 15:11:31:070 2025 CE 11 PING/6/PING_VPN_STATISTICS: Ping statistics for 22.2.2.2 in VPN instance 11: 5 packet(s) transmitted, 5 packet(s) received, 0.0% packet loss, round-trip min/avg/max/std-dev = 4.692/5.875/7.032/0.805 ms.
-   
+
    <CE 11>
    ```
 

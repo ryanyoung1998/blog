@@ -3,7 +3,7 @@ title: 详解 MPLS L3VPN 跨域 Option C1 和 Option C2 的区别
 <!-- description: 详解 MPLS L3VPN 跨域 Option C1 和 Option C2 的区别 -->
 date: 2025-10-20
 slug: compare_option_c1_option_c2
-image: mpls-l3vpn-option-c.png
+image: https://ryan1998.dpdns.org/PicGo/2025_10/cover-mpls-l3vpn-option-c.png
 categories:
     - Datacom
     - MPLS L3VPN
@@ -28,19 +28,19 @@ tags:
 #### 工作机理详解
 
 1. **ASBR间建立EBGP，交换带标签的公网路由**
-   
+
    - 两个AS的ASBR之间建立EBGP邻居，并启用`label-route-capability`（标签路由能力）。
    - 双方通过EBGP会话，将自己AS内PE路由器的Loopback地址（例如AS100的PE1: 1.1.1.1/32）通告给对方。
    - **关键点**：通告这条路由时，会附带一个标签。这个标签是由**出方向ASBR（如ASBR2）为路由1.1.1.1/32分配的（通常是通过LDP分配的）**。
 
 2. **ASBR通过IBGP向PE发布路由和标签**
-   
+
    - 在本端AS内部（例如AS100），**ASBR1与PE1之间需要建立MP-IBGP邻居关系**。
    - ASBR1从对端ASBR2学到的带标签的路由（例如去往PE2的2.2.2.2/32），会通过这个**MP-IBGP会话通告给PE1**。
    - **关键点**：ASBR1在向PE1发送这条BGP更新时，会**保留或重新分配**一个标签。这个标签指向ASBR1，用于构建跨AS的LSP。
 
 3. **PE建立端到端LSP并运行MP-EBGP**
-   
+
    - 此时，PE1的路由表中，去往PE2（2.2.2.2/32）的路由是一条BGP路由，并且带有一个标签。
    - 这样，PE1就拥有了一条完整的、指向PE2的LSP路径。当PE1要发送VPNv4数据包给PE2时，它会压入两层标签：
      - **外层标签**：就是这条BGP标签路由提供的标签，用于将报文指引到ASBR1，并最终穿越AS边界到达PE2。
@@ -85,22 +85,22 @@ bgp 100
 #### 工作机理详解
 
 1. **ASBR间建立EBGP，交换带标签的公网路由**
-   
+
    - 这一步与**方案一完全相同**。ASBR之间通过EBGP交换对端PE的Loopback路由和标签。
 
 2. **ASBR将BGP路由引入IGP**
-   
+
    - **这是与方案一最根本的区别**。
    - 在本端ASBR（如ASBR1）上，配置**路由策略**，将从EBGP对等体（ASBR2）学到的特定BGP路由（如2.2.2.2/32）**引入（重分发）到本地的IGP（如OSPF或IS-IS）中**。
    - 于是，这条路由（2.2.2.2/32）就变成了一条IGP路由，在本AS内部（AS100）泛洪。PE1通过IGP学习到了去往2.2.2.2/32的路由。
 
 3. **IGP触发LDP分配标签**
-   
+
    - 由于2.2.2.2/32现在是一条IGP路由，AS100内部的LDP进程会像为其他IGP路由分配标签一样，为这条路由分配和分发LDP标签。
    - 最终，PE1上会形成一条通过**LDP LSP**到达2.2.2.2/32的路径。
 
 4. **PE建立端到端LSP并运行MP-EBGP**
-   
+
    - 此时，PE1认为去往PE2（2.2.2.2/32）是通过一条**AS内部的LDP LSP**。
    - 当PE1要发送VPNv4数据包时，它压入的两层标签中的**外层标签，是LDP分配的标签**。
    - 数据包在AS100内部通过LDP LSP转发到ASBR1，ASBR1再使用从ASBR2学来的BGP标签，将数据包转发到AS200。
