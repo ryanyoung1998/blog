@@ -1,9 +1,9 @@
 ---
 title: "Datacom"
-description: "数据通信(含Routing Switching Security Wireless)"
+description:
 slug: "datacom"
-image: "cover-datacom.png"
+image: "https://ryan1998.dpdns.org/PicGo/2025_10/cover-datacom.png"
 style:
-    background: "#1f90cdff"
+    background: "#00c3ffff"
     color: "#fff"
 ---

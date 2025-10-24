@@ -1,9 +1,9 @@
 ---
 title: "Virtualization"
-description: "Proxmox Virtual Environment is a complete open-source platform for enterprise virtualization. "
+description: 
 slug: "virtualization"
-image: "pexels-security.jpg"
+image: "https://ryan1998.dpdns.org/PicGo/2025_10/cover-virtualization.jpg"
 style:
-    background: "#3115e8ff"
+    background: "#666666ff"
     color: "#fff"
 ---
