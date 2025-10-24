@@ -1,5 +1,6 @@
 ---
 title: 链接
+date: 2025-10-20
 slug: "links"
 links:
   - title: GitHub
@@ -20,9 +21,13 @@ comments: false
 ---
 
 
-To use this feature, add `links` section to frontmatter.
+要想使用链接功能？
 
-This page's frontmatter:
+需要在前言(frontmatter)部分添加`links`块。
+
+`image` 可以填写本地URI和外部URL。
+
+此页面的前言配置如下:
 
 ```yaml
 links:
@@ -35,5 +40,3 @@ links:
     website: https://golang.google.cn/
     image: golang.svg
 ```
-
-`image` field accepts both local and external images.
