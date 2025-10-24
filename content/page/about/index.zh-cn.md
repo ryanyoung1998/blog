@@ -7,10 +7,11 @@ menu:
         weight: -90
         params:
             icon: user
+image: cover-about.jpg
 links:
-  - title: GitHub
-    description: 我的仓库.
-    website: https://github.com/ryanyoung1998/blog
+  - title: My Github Homepage
+    description: github.com/ryanyoung1998
+    website: https://github.com/ryanyoung1998
     image: github.svg # https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
 draft: false
 description: "热衷于学习、分享的网络工程师"
