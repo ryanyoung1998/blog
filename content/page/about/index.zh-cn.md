@@ -1,20 +1,25 @@
 ---
 title: 关于我
+date: 2025-10-20
 slug: about
 menu:
     main:
         weight: -90
         params:
             icon: user
-date: 2025-10-20
+links:
+  - title: GitHub
+    description: 我的仓库.
+    website: https://github.com/ryanyoung1998/blog
+    image: github.svg # https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
 draft: false
-description: "热衷于分享的网络工程师"
+description: "热衷于学习、分享的网络工程师"
 layout: "page"
 ---
 
-## 👋 你好，欢迎来到我的技术博客！
+## 👋 Hello! Welcome to my blog!
 
-我是Ryan，一名热爱网络技术和虚拟化的网络工程师。
+我是Ryan，一名热爱学习和分享知识的网络工程师。
 
 ## 🎯 博客主题
 
@@ -39,7 +44,6 @@ layout: "page"
 - **Docker**
 - **Kubernetes**
 - 容器网络与存储
-- DevOps实践
 
 ## 📚 学习理念
 
