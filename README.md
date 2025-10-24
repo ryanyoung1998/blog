@@ -1,4 +1,4 @@
-我的博客主页：[Ryan's Blog](https://ryan1998.pages.dev)
+# [Ryan's Blog](https://ryan1998.pages.dev)
 
 ## 👋 Hello! Welcome to my blog!
 
