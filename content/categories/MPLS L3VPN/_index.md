@@ -2,8 +2,8 @@
 title: "MPLS L3VPN"
 description: "MPLS L3VPN"
 slug: "mpls-l3vpn"
-image: "mpls_l3vpn_bg.png"
+image: "cover-mpls_l3vpn.png"
 style:
-    background: "#08b4a6ff"
+    background: "#5f64ffff"
     color: "#fff"
 ---
