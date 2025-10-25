@@ -7,9 +7,9 @@ menu:
         weight: -90
         params:
             icon: user
-image: https://ryan1998.dpdns.org/cover/page/cover-about-think.jpg
+image: https://ryan1998.dpdns.org/cover/page/cover-about-hosting.svg
 links:
-  - title: My Github Homepage
+  - title: 我的 Github 主页
     description: github.com/ryanyoung1998
     website: https://github.com/ryanyoung1998
     image: https://ryan1998.dpdns.org/logo/logo-github.svg
