@@ -4,44 +4,55 @@ date: 2025-10-20
 slug: "links"
 links:
   - title: GitHub
-    description: GitHub is the world's largest software development platform.
+    description: Github 是一个代码仓库
     website: https://github.com
     image: https://ryan1998.dpdns.org/logo/logo-github.svg
 
   - title: Cloudflare
-    description: Cloudflare is a content delivery network (CDN) and a web security company.
+    description: Cloudflare 是一个赛博大善人
     website: https://www.cloudflare.com/
     image: https://ryan1998.dpdns.org/logo/logo-cloudflare.png
 
   - title: DigitalPlat
-    description: DigitalPlat is a free domain name service.
+    description: DigitalPlat 可以免费注册2个二级域名(dpdns.org)
     website: https://domain.digitalplat.org/
     image: https://ryan1998.dpdns.org/logo/logo-DigitalPalt.jpg
 
   - title: Hugo
-    description: Hugo is a fast and flexible static site generator.
+    description: Hugo 是一个构建静态页面的框架
     website: https://gohugo.io/
     image: https://ryan1998.dpdns.org/logo/logo-hugo.png
 
   - title: Stack
-    description: Stack is a Hugo theme.
+    description: Stack 是一个好看的Hugo主题
     website: https://stack.jimmycai.com/
     image: https://ryan1998.dpdns.org/logo/logo-stack.png
 
   - title: Pixabay
-    description: Pixabay is a free stock photo website.
+    description: Pixabay 是一个免费的图片库
     website: https://pixabay.com/
     image: https://ryan1998.dpdns.org/logo/logo-pixabay.svg
 
   - title: Unsplash
-    description: Unsplash is a free stock photo website.
+    description: Unsplash 是一个免费的图片库+1
     website: https://unsplash.com/
     image: https://ryan1998.dpdns.org/logo/logo-unsplash.svg
 
   - title: Proxmox
-    description: Proxmox is a free open-source virtualization platform.
+    description: Proxmox 是一个开源的虚拟化平台
     website: https://www.proxmox.com/en/
-    image: https://ryan1998.dpdns.org/logo/logo-proxmox.png
+    image: https://ryan1998.dpdns.org/logo/logo-proxmox.svg
+
+  - title: KVM
+    description: KVM 是一个Linux内核虚拟化技术
+    website: https://www.redhat.com/en/topics/virtualization/what-is-KVM
+    image: https://ryan1998.dpdns.org/logo/logo-kvm.svg
+
+  - title: LXC
+    description: LXC 是一个Linux容器技术
+    website: https://linuxcontainers.org/zh-cn/lxc/introduction/
+    image: https://ryan1998.dpdns.org/logo/logo-lxc.svg
+    
 
 menu:
     main:
@@ -52,11 +63,4 @@ menu:
 comments: false
 ---
 
-**本站用到的一些资源**
-
-- [**GitHub**](https://github.com) : 远程代码仓库
-- [**Cloudflare**](https://www.cloudflare.com/) : 部署静态页面 + 存储静态资源
-- [**DPDNS**](https://domain.digitalplat.org/) : 免费域名服务商
-- [**Hugo**](https://gohugo.io/) : 静态网站生成器
-- [**Stack**](https://stack.jimmycai.com/) : Hugo 主题
-- [**Pixabay**](https://pixabay.com/) : 免费图片库
+**以下是本人常用的资源链接**
