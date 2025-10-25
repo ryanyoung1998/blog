@@ -1,6 +1,6 @@
 baseurl: https://ryan1998.pages.dev/
 languageCode: en-us
-theme: hugo-theme-stack
+theme: stack
 title: Ryan's Blog
 copyright: Ryan Young
 
@@ -31,7 +31,7 @@ languages:
 services:
   # Change it to your Disqus shortname before using
   disqus:
-    shortname: "hugo-theme-stack"
+    shortname: "stack"
   # GA Tracking ID
   googleAnalytics:
     id:
