@@ -64,7 +64,7 @@ params:
     avatar:
       enabled: true
       local: true
-      src: img/thinking.png
+      src: img/think-emoji.png
 
   article:
     math: false
