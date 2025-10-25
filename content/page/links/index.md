@@ -6,32 +6,42 @@ links:
   - title: GitHub
     description: GitHub is the world's largest software development platform.
     website: https://github.com
-    image: https://ryan1998.dpdns.org/PicGo/2025_10/logo-github.svg
+    image: https://ryan1998.dpdns.org/logo/logo-github.svg
 
   - title: Cloudflare
     description: Cloudflare is a content delivery network (CDN) and a web security company.
     website: https://www.cloudflare.com/
-    image: https://ryan1998.dpdns.org/PicGo/2025_10/logo-cloudflare.svg
+    image: https://ryan1998.dpdns.org/logo/logo-cloudflare.png
 
   - title: DigitalPlat
     description: DigitalPlat is a free domain name service.
     website: https://domain.digitalplat.org/
-    image: https://ryan1998.dpdns.org/PicGo/2025_10/logo-DigitalPalt.jpg
+    image: https://ryan1998.dpdns.org/logo/logo-DigitalPalt.jpg
 
   - title: Hugo
     description: Hugo is a fast and flexible static site generator.
     website: https://gohugo.io/
-    image: https://ryan1998.dpdns.org/PicGo/2025_10/logo-hugo.svg
+    image: https://ryan1998.dpdns.org/logo/logo-hugo.png
 
   - title: Stack
     description: Stack is a Hugo theme.
     website: https://stack.jimmycai.com/
-    image: https://ryan1998.dpdns.org/PicGo/2025_10/logo-stack.png
+    image: https://ryan1998.dpdns.org/logo/logo-stack.png
 
   - title: Pixabay
     description: Pixabay is a free stock photo website.
     website: https://pixabay.com/
-    image: https://ryan1998.dpdns.org/PicGo/2025_10/logo-pixabay.svg
+    image: https://ryan1998.dpdns.org/logo/logo-pixabay.svg
+
+  - title: Unsplash
+    description: Unsplash is a free stock photo website.
+    website: https://unsplash.com/
+    image: https://ryan1998.dpdns.org/logo/logo-unsplash.svg
+
+  - title: Proxmox
+    description: Proxmox is a free open-source virtualization platform.
+    website: https://www.proxmox.com/en/
+    image: https://ryan1998.dpdns.org/logo/logo-proxmox.png
 
 menu:
     main:
