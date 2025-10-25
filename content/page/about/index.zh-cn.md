@@ -1,20 +1,20 @@
 ---
 title: 关于我
-date: 2025-10-20
+date: 2025-10-24
 slug: about
 menu:
     main:
         weight: -90
         params:
             icon: user
-image: https://ryan1998.dpdns.org/PicGo/2025_10/cover-about.jpg
+image: https://ryan1998.dpdns.org/cover/page/cover-about-think.jpg
 links:
   - title: My Github Homepage
     description: github.com/ryanyoung1998
     website: https://github.com/ryanyoung1998
-    image: https://ryan1998.dpdns.org/PicGo/2025_10/logo-github.svg
+    image: https://ryan1998.dpdns.org/logo/logo-github.svg
 draft: false
-description: "热衷于学习、分享的网络工程师"
+description: "热衷于学习和分享的网络工程师"
 layout: "page"
 ---
 
