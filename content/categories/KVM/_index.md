@@ -2,8 +2,8 @@
 title: "KVM"
 description:
 slug: "kvm"
-image:
+image: "https://ryan1998.dpdns.org/logo/logo-kvm.svg"
 style:
-    background: "#666666ff"
+    background: "#194d89ff"
     color: "#fff"
 ---

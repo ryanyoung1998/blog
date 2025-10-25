@@ -2,8 +2,8 @@
 title: "LXC"
 description:
 slug: "lxc"
-image:
+image: "https://ryan1998.dpdns.org/logo/logo-lxc.svg"
 style:
-    background: "#666666ff"
+    background: "#a71f00ff"
     color: "#fff"
 ---
