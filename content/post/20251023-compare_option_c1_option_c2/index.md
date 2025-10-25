@@ -3,7 +3,7 @@ title: 详解 MPLS L3VPN 跨域 Option C1 和 Option C2 的区别
 <!-- description: 详解 MPLS L3VPN 跨域 Option C1 和 Option C2 的区别 -->
 date: 2025-10-20
 slug: compare_option_c1_option_c2
-image: https://ryan1998.dpdns.org/PicGo/2025_10/cover-mpls-l3vpn-option-c.png
+image: https://ryan1998.dpdns.org/cover/post/mpls/cover-mpls-l3vpn-option-c.png
 categories:
     - Datacom
     - MPLS L3VPN

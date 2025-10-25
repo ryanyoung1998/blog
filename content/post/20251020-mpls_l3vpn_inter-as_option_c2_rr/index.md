@@ -3,7 +3,7 @@ title: 基于HCL实现MPLS L3VPN跨域Option C2 (RR)组网
 description: 使用H3C Cloud Lab实现MPLS L3VPN跨域Option C2 (RR)组网
 date: 2025-10-20
 slug: mpls_l3vpn_opton_c2
-image: https://ryan1998.dpdns.org/PicGo/2025_10/cover-mpls-l3vpn-option-c2.png
+image: https://ryan1998.dpdns.org/cover/post/mpls/cover-mpls-l3vpn-option-c2.png
 categories:
     - Datacom
     - MPLS L3VPN

@@ -3,10 +3,10 @@ title: ProxmoxVE 如何下载容器模板？
 description:
 date: 2025-10-02
 slug: proxmox-how-to-download-ct
-image: https://ryan1998.dpdns.org/PicGo/2025_10/cover-proxmox-how-to-download-ct.png
+image: https://ryan1998.dpdns.org/cover/post/proxmox/cover-proxmox-how-to-download-container-template.png
 categories:
     - Proxmox
-    - Virtualization
+    - LXC
 tags:
     - Container
     - pct

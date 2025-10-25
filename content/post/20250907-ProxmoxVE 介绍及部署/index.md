@@ -3,13 +3,12 @@ title: ProxmoxVE 介绍及部署
 description:
 date: 2025-09-07
 slug: proxmox-features-and-deploy
-image: https://ryan1998.dpdns.org/PicGo/2025_10/cover-proxmox-features-and-deploy.png
+image: https://ryan1998.dpdns.org/cover/post/proxmox/cover-proxmox-features-and-deploy.png
 categories:
     - Proxmox
-    - Virtualization
+    - KVM
+    - LXC
 tags:
-    - Linux
-    - Debian
     - Virtual Machine
     - Container
 ---
@@ -47,15 +46,14 @@ Proxmox VE 的核心优势在于其整合了两种主流的虚拟化技术：
 选择 `Install Proxmox VE (Grapical)`  或  `Install Proxmox VE (Terminal UI)` 开始安装
 
 - 以下步骤以图形化界面 **(Grapical)** 为例：
-
-![](https://ryan1998.dpdns.org/PicGo/2025_10/install_proxmox_01.png)
+![](https://ryan1998.dpdns.org/illus/install-proxmox/01.png)
 
 <div style="page-break-before: always;"></div>
 
 ## 2.阅读用户协议
 点击 `I agree` 同意用户协议
 
-![](https://ryan1998.dpdns.org/PicGo/2025_10/install_proxmox_02.png)
+![](https://ryan1998.dpdns.org/illus/install-proxmox/02.png)
 
 <div style="page-break-before: always;"></div>
 
@@ -64,7 +62,7 @@ Proxmox VE 的核心优势在于其整合了两种主流的虚拟化技术：
 - Target Harddisk：选择 **系统盘**
   并点击 `Next` 继续安装
 
-![](https://ryan1998.dpdns.org/PicGo/2025_10/install_proxmox_03.png)
+![](https://ryan1998.dpdns.org/illus/install-proxmox/03.png)
 
 <div style="page-break-before: always;"></div>
 
@@ -75,7 +73,7 @@ Proxmox VE 的核心优势在于其整合了两种主流的虚拟化技术：
 - Keyboard Layout：键盘默认为 **U.S.English**
   点击 `Next` 继续
 
-![](https://ryan1998.dpdns.org/PicGo/2025_10/install_proxmox_04.png)
+![](https://ryan1998.dpdns.org/illus/install-proxmox/04.png)
 
 <div style="page-break-before: always;"></div>
 
@@ -86,7 +84,7 @@ Proxmox VE 的核心优势在于其整合了两种主流的虚拟化技术：
 - Email: 设置管理员 **邮箱**
   点击 `Next` 继续
 
-![](https://ryan1998.dpdns.org/PicGo/2025_10/install_proxmox_05.png)
+![](https://ryan1998.dpdns.org/illus/install-proxmox/05.png)
 
 <div style="page-break-before: always;"></div>
 
@@ -99,14 +97,14 @@ Proxmox VE 的核心优势在于其整合了两种主流的虚拟化技术：
 - DNS Server：设置管理网卡 **DNS地址**
   点击 `Next` 继续
 
-![](https://ryan1998.dpdns.org/PicGo/2025_10/install_proxmox_06.png)
+![](https://ryan1998.dpdns.org/illus/install-proxmox/06.png)
 
 <div style="page-break-before: always;"></div>
 
 ## 7.确认系统安装信息
 确认系统安装信息无误后，点击 `Install` 开始安装 Proxmox VE
 
-![](https://ryan1998.dpdns.org/PicGo/2025_10/install_proxmox_07.png)
+![](https://ryan1998.dpdns.org/illus/install-proxmox/07.png)
 
 <div style="page-break-before: always;"></div>
 
@@ -114,7 +112,7 @@ Proxmox VE 的核心优势在于其整合了两种主流的虚拟化技术：
 系统重启后显示 *欢迎信息。*
 到此为止，*系统安装完成！*
 
-![](https://ryan1998.dpdns.org/PicGo/2025_10/install_proxmox_08.png)
+![](https://ryan1998.dpdns.org/illus/install-proxmox/08.png)
 
 <div style="page-break-before: always;"></div>
 
@@ -128,11 +126,11 @@ Proxmox VE 的核心优势在于其整合了两种主流的虚拟化技术：
 - [A] Save User name: 勾选保存用户名
   点击 `登录`
 
-![](https://ryan1998.dpdns.org/PicGo/2025_10/install_proxmox_09.png)
+![](https://ryan1998.dpdns.org/illus/install-proxmox/09.png)
 
 <div style="page-break-before: always;"></div>
 
 ## 忽略 *无有效订阅*
 点击 `确定` 进入*Proxmox VE*
 
-![](https://ryan1998.dpdns.org/PicGo/2025_10/install_proxmox_10.png)
+![](https://ryan1998.dpdns.org/illus/install-proxmox/10.png)
