@@ -48,14 +48,14 @@ params:
     - post
   featuredImageField: image
   rssFullContent: true
-  favicon: /favicon.ico # 文件存放于 /static/favicon.ico
+  favicon: /favicon.ico # /static/favicon.ico
 
   footer:
     since: 2025
-    customText: # Made with ❤️ by Ryan Young.
+    customText: 持续学习，共同进步！ 🚀
 
   dateFormat:
-    published: 2006-01-02 #Jan 02, 2006
+    published: 2006-01-02 # Jan 02, 2006
     lastUpdated: Jan 02, 2006 15:04 MST
 
   sidebar:
@@ -64,7 +64,7 @@ params:
     avatar:
       enabled: true
       local: true
-      src: img/think-emoji.png
+      src: img/think-emoji.png # /assets/img/think-emoji.png
 
   article:
     math: false
@@ -215,13 +215,13 @@ menu:
       name: GitHub
       url: https://github.com/ryanyoung1998/blog
       params:
-        icon: github-icon
+        icon: github-icon # /assets/img/github-icon.svg
 
     - identifier: bilibili
       name: Bilibili
       url: https://space.bilibili.com/27682859
       params:
-        icon: bilibili-icon
+        icon: bilibili-icon # /assets/img/bilibili-icon.svg
 
 related:
   includeNewer: true
