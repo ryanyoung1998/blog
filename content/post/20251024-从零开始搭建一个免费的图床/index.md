@@ -118,3 +118,10 @@ tags:
     ![alt text](https://ryan1998.dpdns.org/illus/build-image-hosting/4.02-access-resources.png) 
     现在就可以通过域名访问R2存储桶中的资源了.
     ![alt text](https://ryan1998.dpdns.org/illus/build-image-hosting/4.03-access-resources2.png) 
+
+
+## 总结
+1. 在Cloudflare上创建R2存储桶
+2. 在DigitalPlat上注册域名
+3. 将新注册的域名托管到Cloudflare上
+4. 将托管好的域名绑定到R2存储桶自定义域中
