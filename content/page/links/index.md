@@ -14,7 +14,7 @@ links:
     image: https://ryan1998.dpdns.org/logo/logo-cloudflare.png
 
   - title: DigitalPlat
-    description: DigitalPlat 可以免费注册2个二级域名(dpdns.org)
+    description: DigitalPlat 可以免费注册2个二级域名
     website: https://domain.digitalplat.org/
     image: https://ryan1998.dpdns.org/logo/logo-DigitalPalt.jpg
 
@@ -37,6 +37,16 @@ links:
     description: Unsplash 是一个免费的图片库+1
     website: https://unsplash.com/
     image: https://ryan1998.dpdns.org/logo/logo-unsplash.svg
+
+  - title: Pexels
+    description: Pexels 是一个免费的图片库+1
+    website: https://www.pexels.com/zh-cn/
+    image: https://ryan1998.dpdns.org/logo/logo-pexels.svg
+
+  - title: iconfont
+    description: iconfont 是一个免费的图标库
+    website: https://www.iconfont.cn/
+    image: https://ryan1998.dpdns.org/logo/logo-iconfont.svg
 
   - title: Proxmox
     description: Proxmox 是一个开源的虚拟化平台
@@ -63,4 +73,4 @@ menu:
 comments: false
 ---
 
-**以下是本人常用的资源链接**
+**🔗 列举一些免费资源的链接**
