@@ -3,3 +3,4 @@ resources
 content/post/.obsidian/
 assets/jsconfig.json
 .hugo_build.lock
+.bak
