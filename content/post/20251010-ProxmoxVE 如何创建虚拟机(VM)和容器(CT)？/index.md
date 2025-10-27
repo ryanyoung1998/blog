@@ -22,11 +22,11 @@ tags:
 >
 > 1. 提前下载系统镜像，并上传至 `local`  `ISO 镜像`
 >
->    ![](../../../../assets/2025-10-09-15-15-49-image.png)
+>    ![upload-iso](https://ryan1998.dpdns.org/illus/create-vm-and-ct/0.1-upload-iso.png)
 >
 > 2. 提前下载容器模板，并上传至 `local` `CT 模板`
 >
->    ![](../../../../assets/2025-10-09-15-14-58-image.png)
+>    ![upload-ct](https://ryan1998.dpdns.org/illus/create-vm-and-ct/0.2-upload-ct.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -40,11 +40,11 @@ tags:
 
 - 使用 root 或具有权限的用户登录。
 
-  ![](../../../../assets/2025-10-09-14-29-06-image.png)
+  ![login-proxmox](https://ryan1998.dpdns.org/illus/create-vm-and-ct/1.1.1-login-proxmox.png)
 
 - 忽略 **无有效订阅**
 
-  ![](../../../../assets/2025-10-09-14-29-54-image.png)
+  ![ignore-subsribe](https://ryan1998.dpdns.org/illus/create-vm-and-ct/1.1.2-ignore-subsribe.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -52,7 +52,7 @@ tags:
 
 - 在左侧服务器节点上右键，或点击顶部工具栏的 **“创建 VM”** 按钮。
 
-  ![](../../../../assets/2025-10-09-14-32-58-image.png)
+  ![create-vm-button](https://ryan1998.dpdns.org/illus/create-vm-and-ct/1.2.1-create-vm-button.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -71,7 +71,7 @@ tags:
   - 开机自启
   - 添加标签
 
-  ![](../../../../assets/2025-10-09-14-36-11-image.png)
+  ![](https://ryan1998.dpdns.org/illus/create-vm-and-ct/1.3.1-create-vm-general.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -83,7 +83,7 @@ tags:
 
   > 💡 提示：选择正确的类型有助于 Proxmox 自动优化配置（如默认使用 VirtIO 驱动）。
 
-  ![](../../../../assets/2025-10-09-14-37-57-image.png)
+  ![](https://ryan1998.dpdns.org/illus/create-vm-and-ct/1.3.2-create-vm-iso.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -101,7 +101,7 @@ tags:
 
 - **Qemu Agent**: **强烈建议启用** —— 便于在 PVE 界面内查看 IP、关机、冻结文件系统等。
 
-  ![](../../../../assets/2025-10-09-14-39-14-image.png)
+  ![](https://ryan1998.dpdns.org/illus/create-vm-and-ct/1.3.3-create-vm-system.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -119,7 +119,7 @@ tags:
 
 - **SSD 仿真**: 勾选（尤其对 Windows 客户机）。
 
-  ![](../../../../assets/2025-10-09-14-39-54-image.png)
+  ![](https://ryan1998.dpdns.org/illus/create-vm-and-ct/1.3.4-create-vm-hard-disk.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -131,7 +131,7 @@ tags:
 
 - **Sockets / Cores / Threads**: 一般保持默认即可，或根据授权要求调整（如 Windows 授权限制）。
 
-  ![](../../../../assets/2025-10-09-14-41-11-image.png)
+  ![](https://ryan1998.dpdns.org/illus/create-vm-and-ct/1.3.5-create-vm-cpu.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -141,7 +141,7 @@ tags:
 
 - **Ballooning**: 可选启用（允许动态调整内存，但需安装 qemu-guest-agent）。
 
-  ![](../../../../assets/2025-10-09-14-41-51-image.png)
+  ![](https://ryan1998.dpdns.org/illus/create-vm-and-ct/1.3.6-create-vm-memory.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -155,7 +155,7 @@ tags:
 
 - **防火墙**: 按需启用。
 
-  ![](../../../../assets/2025-10-09-14-42-35-image.png)
+  ![](https://ryan1998.dpdns.org/illus/create-vm-and-ct/1.3.7-create-vm-network.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -163,7 +163,7 @@ tags:
 
 - 点击 **“完成”** 创建虚拟机。
 
-  ![](../../../../assets/2025-10-09-14-43-18-image.png)
+  ![](https://ryan1998.dpdns.org/illus/create-vm-and-ct/1.3.8-create-vm-complate.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -173,15 +173,15 @@ tags:
 
 - 点击 **“控制台”**（通常为 noVNC）进入安装界面。
 
-  ![](../../../../assets/2025-10-09-14-56-38-image.png)
+  ![](https://ryan1998.dpdns.org/illus/create-vm-and-ct/1.4.1-create-vm-start-now.png)
 
 <div style="page-break-after: always;"></div>
 
 - 按照操作系统安装向导完成安装。
 
-  ![](../../../../assets/2025-10-09-14-59-57-image.png)
+  ![](https://ryan1998.dpdns.org/illus/create-vm-and-ct/1.4.2-create-vm-install-system.png)
 
-  ![](../../../../assets/2025-10-09-15-51-23-image.png)
+  ![](https://ryan1998.dpdns.org/illus/create-vm-and-ct/1.4.3-create-vm-startup-system.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -200,7 +200,7 @@ tags:
 
 - 在节点上点击顶部工具栏 **“创建 CT”**。
 
-  ![](../../../../assets/2025-10-09-15-20-07-image.png)
+  ![](https://ryan1998.dpdns.org/illus/create-vm-and-ct/2.1.1-create-ct-button.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -214,7 +214,7 @@ tags:
 
 - **资源池**（可选）。
 
-  ![](../../../../assets/2025-10-09-15-21-22-image.png)
+  ![](https://ryan1998.dpdns.org/illus/create-vm-and-ct/2.2.1-create-ct-general.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -222,7 +222,7 @@ tags:
 
 - 从下拉菜单选择已下载的模板（如 `ubuntu-22.04-standard...`）。
 
-  ![](../../../../assets/2025-10-09-15-21-54-image.png)
+  ![](https://ryan1998.dpdns.org/illus/create-vm-and-ct/2.2.2-create-ct-template.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -232,14 +232,14 @@ tags:
 
 - **磁盘大小**: 如 `8G`（容器通常不需要很大空间）。
 
-  ![](../../../../assets/2025-10-09-15-22-27-image.png)
+  ![](https://ryan1998.dpdns.org/illus/create-vm-and-ct/2.2.3-create-ct-root-disk.png)
 
 <div style="page-break-after: always;"></div>
 
 #### **4. CPU**
 
 - **核心数**: 如 `1`。
-- ![](../../../../assets/2025-10-09-15-23-07-image.png)
+- ![](https://ryan1998.dpdns.org/illus/create-vm-and-ct/2.2.4-create-ct-cpu.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -249,7 +249,7 @@ tags:
 
 - **交换空间 (Swap)**: 如 `512 MiB`。
 
-  ![](../../../../assets/2025-10-09-15-23-45-image.png)
+  ![](https://ryan1998.dpdns.org/illus/create-vm-and-ct/2.2.5-create-ct-memory.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -261,7 +261,7 @@ tags:
 
 - **网关**: 自动或手动填写。
 
-  ![](../../../../assets/2025-10-09-15-25-06-image.png)
+  ![](https://ryan1998.dpdns.org/illus/create-vm-and-ct/2.2.6-create-ct-network.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -269,7 +269,7 @@ tags:
 
 - 设置 DNS 服务器（如 `1.1.1.1`）和搜索域。
 
-  ![](../../../../assets/2025-10-09-15-25-39-image.png)
+  ![](https://ryan1998.dpdns.org/illus/create-vm-and-ct/2.2.7-create-ct-dns.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -277,11 +277,11 @@ tags:
 
 - 点击 **“完成”** 创建容器。
 
-  ![](../../../../assets/2025-10-09-15-26-20-image.png)
+  ![](https://ryan1998.dpdns.org/illus/create-vm-and-ct/2.2.8-create-ct-complate.png)
 
 - 输出 `TASK OK` 说明容器创建完成。
 
-  ![](../../../../assets/2025-10-09-15-27-18-image.png)
+  ![](https://ryan1998.dpdns.org/illus/create-vm-and-ct/2.2.9-create-ct-taskok.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -289,13 +289,13 @@ tags:
 
 - 选中新建的 CT，点击 **“启动”**。
 
-  ![](../../../../assets/2025-10-09-15-31-00-image.png)
+  ![](https://ryan1998.dpdns.org/illus/create-vm-and-ct/2.3.1-create-ct-start-now.png)
 
 - 可点击 **“控制台”** 进入 shell。
 
 - 默认 root 密码是你在创建时设置的密码。
 
-  ![](../../../../assets/2025-10-09-15-32-01-image.png)
+  ![](https://ryan1998.dpdns.org/illus/create-vm-and-ct/2.3.2-create-ct-shell.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -308,7 +308,7 @@ pct enter <CTID>  # 如 pct enter 100
 
 或通过 Web 界面控制台操作。
 
-![](../../../../assets/2025-10-09-15-33-57-image.png)
+![](https://ryan1998.dpdns.org/illus/create-vm-and-ct/2.4.1-create-ct-pct-enter.png)
 
 <div style="page-break-after: always;"></div>
 
