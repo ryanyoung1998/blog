@@ -121,7 +121,103 @@ tags:
 
 
 ## 总结
-1. 在Cloudflare上创建R2存储桶
-2. 在DigitalPlat上注册域名
-3. 将新注册的域名托管到Cloudflare上
-4. 将托管好的域名绑定到R2存储桶自定义域中
+
+###  整体架构图
+
+```mermaid
+graph TB
+    A[😀用户] --> B[📱 前端上传界面]
+    B --> C[🌐 Cloudflare]
+    C --> D[💾 R2对象存储]
+    E[📝 Markdown文档] --> F[🎯 DigitalPlat域名]
+    F --> C
+    A --> E
+    
+    style A fill:#e0f2f1
+    style B fill:#f3e5f5
+    style C fill:#fff3e0
+    style D fill:#e8f5e8
+    style E fill:#fce4ec
+    style F fill:#e1f5fe 
+```
+
+### 1.  准备工作流程图
+
+```mermaid
+graph TB
+    A[😀用户] --> B[注册Cloudflare账号]
+    B --> E[添加支付方式]
+    E --> C[✔准备完成]
+    A[😀用户] --> D[注册DigitalPlat账号]
+    D --> F[注册FreeDomain域名]
+    F --> C
+    
+    style A fill:#e0f2f1
+    style B fill:#f3e5f5
+    style C fill:#fff3e0
+    style D fill:#e8f5e8
+    style E fill:#fce4ec
+    style F fill:#e1f5fe 
+```
+
+### 2.  R2存储桶创建流程
+
+```mermaid
+flowchart TD
+    A[登录Cloudflare] --> B[进入R2管理界面]
+    B --> C[创建存储桶]
+    C --> D[配置存储桶名称]
+    D --> E[设置访问权限]
+    E --> F[完成创建]
+    
+
+    style F fill:#e8f5e8
+```
+
+### 2.  R2自定义域配置流程
+
+```mermaid
+flowchart TD
+    A[免费域名托管到Cloudflare] --> B[Cloudflare R2添加自定义域]
+    B --> C[可通过自定义域名访问资源]
+    
+    style C fill:#e8f5e8
+```
+
+### 3.  使用流程演示
+
+#### 3.1 图片上传流程图
+
+```mermaid
+sequenceDiagram
+    participant U as 用户
+    participant F as 前端界面
+    participant C as Cloudflare
+    participant R as R2存储桶
+
+    U->>F: 选择/拖拽图片
+    F->>C: POST /upload (multipart/form-data)
+    C->>R: 上传图片文件
+    C->>C: 生成访问链接
+    C-->>F: 返回上传成功
+    F-->>U: 显示上传结果
+```
+
+#### 3.2 图片访问流程
+
+```mermaid
+sequenceDiagram
+    participant R as 阅读器
+    participant M as Markdown文档
+    participant D as DigitalPlat域名
+    participant C as Cloudflare
+    participant R2 as R2存储桶
+
+    R->>M: 打开Markdown文档
+    M->>D: 通过域名请求图片
+    D->>C: 通过Cloudflare CDN
+    C->>R2: 获取图片对象
+    R2-->>C: 返回图片数据
+    C-->>M: 返回图片响应
+    M-->>R: 显示图片内容
+```
