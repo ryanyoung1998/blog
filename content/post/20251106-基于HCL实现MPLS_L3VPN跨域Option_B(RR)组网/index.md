@@ -26,7 +26,7 @@ tags:
 
 - RR 与 PE(含ASBR) 之间建立 MP-iBGP 传递 VPNv4 路由
 
-- ASBR 之间建立 **MP-eBGP** 传递 VPNv4 路由
+- ASBR 之间建立 **MP-eBGP** 传递 VPNv4 路由，ASBR 之间**需要**运行 MPLS 和 LDP 协议
 
 - PE 与 CE 之间使用 IGP 传递 VPNv4 路由
 
@@ -947,11 +947,11 @@ isis 1
 
 > 1. 因为 RR 和 ASBR 上不接业务，也不配置 VPN 实例，所以需要在 VPNv4地址簇下配置
 > 
->    ` undo policy vpn-target`
+>    **`undo policy vpn-target`**
 > 
-> 2. 因为AS域内的RR和PE均没有ASBR之间互联地址的路由，所以需要在ASBR侧 VPNv4地址簇下配置
+> 1. 因为 AS 域内的 RR 和 PE 均没有 ASBR 之间互联地址的路由，所以需要在 ASBR 侧 的 VPNv4 地址簇下配置
 > 
->    `peer RR next-hop-local`
+>    **`peer RR next-hop-local`**
 
 #### AS 10
 
@@ -1124,15 +1124,20 @@ bgp 20
 
 ### 1. 配置VPN实例
 
-> VPN实例RD、RT分配规范（交叉RT）
+> VPN实例RD、RT分配规范（仅实验环境）：
 > 
-> RD ：AS:VPN
+> MPLS L3VPN Inter-AS Option B 方式
 > 
-> import-RT：对端ASVPN:本端ASVPN
+> - **要求**收发 `route-target` 必须要匹配
 > 
-> export-RT:   本端ASVPN:对端ASVPN
+> - 建议使用 **交叉RT** 的方式进行规划
 > 
-> MPLS L3VPN Inter-AS Option B方式要求route-target必须要匹配
+> RD ：**AS:VPN**
+> 
+> importRT ：对端ASVPN：本端ASVPN
+> 
+> exportRT ：本端ASVPN：对端ASVPN
+
 #### AS 10
 
 - PE_1
